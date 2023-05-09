@@ -1,19 +1,25 @@
 import math
 
 
-def volume():
-    radius = input("Enter radius of cylinder (cm): ")
-    height = input("Enter height of cylinder (cm): ")
-
-    volume = math.pi * (float(radius) * float(radius)) * float(height)
-
-    volume = "The volume of a cylinder with a radius of {} and a height of {} is {} cm^3".format(
-        radius, height, round(volume, 3)
-    )
+def volume_cylinder(height: float, radius: float) -> float:
+    volume = math.pi * pow(radius, 2) * height
 
     return volume
 
 
-print(volume())
+def main() -> None:
+    user_height = float(input("Enter the height of the cylinder (cm): "))
+    user_radius = float(input("Enter the radius of the cylinder (cm): "))
 
-print("\ndone")
+    print("")
+
+    volume = volume_cylinder(user_height, user_radius)
+
+    print(
+        f"The volume of a cylinder with a radius of {user_radius} and a height of {user_height} is {round(volume, 3)} cm^3"
+    )
+    print("\nDone.")
+
+
+if __name__ == "__main__":
+    main()
